@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        
+        <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa8Owa2NyV8OxoyArco44xAW6Fr2PTKP_F8Q&s"><button id="boutonFuyant">clique ici </button></a>
+    </body>
+</body>
+<script>
+    const bouton = document.getElementById('boutonFuyant');
+    
+    document.addEventListener('mousemove', (souris) => {
+        const rect = bouton.getBoundingClientRect();
+        const distance = Math.sqrt(
+            Math.pow(souris.clientX - (rect.left + rect.width / 2), 2) +
+            Math.pow(souris.clientY - (rect.top + rect.height / 2), 2)
+        );
+        
+        if (distance < 100) {
+            const newTop = Math.random() * (window.innerHeight - rect.height);
+            const newLeft = Math.random() * (window.innerWidth - rect.width);
+            
+            bouton.style.top = newTop + 'px';
+            bouton.style.left = newLeft + 'px';
+        }
+    });
+</script>
+
+  
+
+
+
+</html>
